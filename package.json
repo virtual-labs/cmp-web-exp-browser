@@ -1,6 +1,6 @@
 {
   "name": "cmp-web-exp-browser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Experiments Card react component",
   "main": "./build/index.js",
   "scripts": {

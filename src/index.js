@@ -2,23 +2,23 @@ import React, { useEffect, useState } from "react";
 import './index.css'
 import 'bulma/css/bulma.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
-export default function Exp_Card(props) {
-  const [data,setdata] = useState( {
-    exp_name: 'Experiment Name',
-    exp_link: 'https://google.com',
-    collage: 'Collage',
-    exp_img: '',
-    collage_img: '',
-    card_content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.',
-    rating: '4.5',
-    modal_content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.',
-    // modal_img:'',
-    tags:["tag1 ","tag2","tag3"],
-    domain:'Domain',
-    lab:'Lab',
-    saved:false
-    });
-    const [saved,setsaved] = useState(false)
+export function Bulma_component(props) {
+    const [data,setdata] = useState( {
+      exp_name: 'Experiment Name',
+      exp_link: 'https://google.com',
+      institute: 'institute',
+      exp_img: '',
+      institute_img: '',
+      card_content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.',
+      rating: '4.5',
+      modal_content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.',
+      // modal_img:'',
+      tags:["tag1 ","tag2","tag3"],
+      domain:'Domain',
+      lab:'Lab',
+      saved:false
+      });
+      const [saved,setsaved] = useState(false)
     const [flag,setflag] = useState(false)
     useEffect(()=>{
         setdata(props?.UserData);
@@ -32,97 +32,110 @@ export default function Exp_Card(props) {
     const call_back_link = () =>{
       props?.onclickinglink(data?.exp_link)
     }
-    function open_modal(){
-        const get_modal = document.getElementById(data?.exp_name);
-        get_modal.classList.add("is-active");
-      }
-      function close_modal(){
-        const get_modal = document.getElementById(data?.exp_name);
-        get_modal.classList.remove("is-active");
-      }
   return (
     flag?(
       <>
-      <div class="card column mx-5 my-5 has-background-white has-text-black">
+    <div class="card column mx-5 my-5 has-background-white has-text-black p-2" style={{minWidth:"280px"}}>
           <div class="card-image ">
               <figure class="image is-4by3">
               {data?.exp_img === "" || data?.exp_img === undefined?(
-                      <img style={{borderBottomRightRadius:"50%"}} src="https://bulma.io/images/placeholders/1280x960.png"/>):(<img style={{borderBottomRightRadius:"50%"}}  src={data?.exp_img} />)}
-              </figure>
+                      <img style={{borderBottomRightRadius:"50%",boxShadow:"1px 1px 5px 1px black "}} src="https://bulma.io/images/placeholders/1280x960.png"/>):(<img style={{borderBottomRightRadius:"50%",boxShadow:"1px 1px 5px 1px black "}}  src={data?.exp_img} />)}
+                      </figure>
           </div>
           <div class="card-content px-0 pb-0">
-              <div className="saved">
-                  {saved === true ? (
-                    <span class=" is-pulled-right icon-text" style={{marginTop:"-30px",position:"relative"}} onClick={()=>{call_backfunc()}}>
-                      <span class="icon has-text-primary">
-                        <i class="fa-solid fa-lg fa-star"></i>
-                      </span>
-                      <span className=" is-size-6 has-text-primary is-underlined"> Saved</span>
-                    </span>
-                  ):(<span class=" is-pulled-right icon has-text-primary" style={{marginTop:"-30px",position:"relative"}} onClick={()=>{call_backfunc()}}>
-                      <i class="fa-regular fa-lg fa-star"></i>
-                    </span>
-                    )}
-              </div>
-              <div class="media">
-                  <div class="media-left">
-                      <figure class="image is-48x48">
-                      {data?.collage_img === "" || data?.collage_img === undefined?(
-                      <img src="https://bulma.io/images/placeholders/96x96.png"/>):(<img  src={data?.collage_img} />)}
+            <div >
+            <span class=" is-pulled-right icon-text tag is-primary is-light is-medium pr-2 is-rounded" style={{marginTop:"-35px"}}>
+              <span class="icon has-text-primary">
+                <i class="fa-solid fa-lg fa-star"></i>
+              </span>
+              <span> {data?.rating}</span>
+            </span>
+            </div>
+              <div class="media mb-1">
+                  <div class="media-left my-auto">
+                      <figure class="image is-48x48 ">
+                        <div className="container">
+                          {data?.institute_img === "" || data?.institute_img === undefined?(
+                            <img src="https://bulma.io/images/placeholders/96x96.png"/>):(<img  src={data?.institute_img} />)}
+                          <div className="overlay "><p>{data?.institute}</p></div>
+                        </div>
                       </figure>
                   </div>
-                  <div class="media-content has-text-black">
-                    <span className="">
-                    <p class="title is-4 has-text-primary is-underlined is-clickable" onClick={()=>{call_back_link(data?.exp_link)}}>{data?.exp_name }</p>
-                      <p class="subtitle is-6 has-text-black">{data?.collage}</p>
-                    </span>
+                  <div class="media-content">
+                    <div className="text_hover">
+                      <p  class="title is-4 has-text-primary is-underlined is-clickable text mb-0 " onClick={()=>{call_back_link(data?.exp_link)}}>{data?.exp_name}</p>
+                      <div className="tooltip">{data?.exp_name}</div>
+                    </div>
+                    <div className="text_hover_domain">
+                      <p  class=" has-text-primary text_domain" >{data?.domain}</p>
+                      <div className="tooltip_domain">{data?.domain}</div>
+                    </div>
                   </div>
-              </div>
+              </div> 
 
-              <div class="content">
-              {data?.card_content}
+              <div class="content mb-2 text_hover_content">
+                <p className="text_content">{data?.card_content}</p>
+                <div className="tooltip_content">{data?.card_content}</div>
               </div>
-              <footer class="card-footer">
-                    <span class="icon-text card-footer-item is-size-5">
-                      <span class="icon has-text-danger">
-                        <i class="fa-solid fa-lg fa-thumbs-up"></i>
-                      </span>
-                      <span> {data?.rating}/5</span>
-                    </span>
-                    <button class="js-modal-trigger card-footer-item button is-primary" data-target="modal-js-example" onClick={()=>{open_modal()}}>
-                      Learn More
-                    </button>
-              </footer>
           </div>
+              <footer class="card-footer">
+                   {saved === true ? (
+                    <button className="card-footer-item button is-primary is-light" style={{border:"green solid 3px"}} onClick={()=>{call_backfunc()}}>
+                      <span class="icon-text">
+                        <span class="icon has-text-primary">
+                          <i class="fa-solid fa-lg fa-heart"></i>
+                        </span>
+                        <p className=" is-underlined has-text-weight-bold"> Added to Favourites</p>
+                      </span>
+                    </button>
+                  ):(
+                    <button className="card-footer-item  button is-primary is-light" style={{border:"green solid 2px"}} onClick={()=>{call_backfunc()}}>
+                    <span class="icon-text">
+                      <span class="icon has-text-primary">
+                        <i class="fa-regular fa-lg fa-heart"></i>
+                      </span>
+                      <span className="is-underlined has-text-weight-medium"> Add to Favourites</span>
+                    </span>
+                  </button>
+                    )}
+              </footer>
       </div>
-      <div id={data?.exp_name} class="modal is-small">
-    <div class="modal-background"></div>
-
-      <div class="modal-card has-text-black">
-        <header class="modal-card-head has-background-white py-2">
-        <p class="title is-4 has-text-primary is-underlined is-clickable" onClick={()=>{call_back_link(data?.exp_link)}}>{data?.exp_name }</p>
-          <button class="delete is-large has-background-primary ml-auto" onClick={()=>{close_modal()}}></button>
-        </header>
-        <section class="modal-card-body">
-        <p className="has-text-weight-medium is-size-5">{data?.domain}</p>
-        <hr className="my-2 has-background-black"/>
-        <p className="has-text-weight-medium is-size-6">{data?.lab}</p>
-        <ul className="pl-5" style={{height:"72px",overflowY:"scroll",listStyleType:"disc"}}>
-
-        {data?.tags?.map((elem,i)=>{
-          return(
-            <li>
-            <span >{elem}</span>
-            </li>
-            )
-          })}
-          </ul>
-        </section>
-        <footer class="modal-card-foot has-background-white">
-          {data?.modal_content}
-        </footer>
-      </div>
-    </div>
         </>):(<>Loading</>)
+  );
+}
+export function People_Card(){
+  return(
+    <div className="outer_card mx-5 has-background-white" >
+        <div className="lines is-clipped"></div>
+        <div className="height"></div>
+        <div className="imgbx has-background-white">
+          <img src="https://picsum.photos/96/96"></img>
+          <div className="is-flex is-flex-direction-column wrapper">
+            <div className="data has-text-centered">
+              <p className="is-size-3 has-text-weight-semibold has-text-black">Yatharth Gupta</p>
+              <span className="is-size-4 has-text-weight-medium has-text-black">Developer</span>
+              <p className="px-1 mt-1 has-text-black has-text-black">Lorem jgbllbj rgngejO wough owugh owg hwighoGh ig hiwuhisgu high ig hiugh iguh ig gkenaleknlagbagb jabg kjen</p>
+            </div>
+            <div class="card-footer mt-auto ">
+              <span class="icon-text card-footer-item">
+                <span class="icon has-text-danger">
+                  <i class="fas fa-lg fa-star"></i>
+                </span>
+                <span className="has-text-black"> 4.5/5</span>
+              </span>
+              <span class="card-footer-item is-size-5">
+                <span class="icon has-text-danger">
+                  <i class="fa-solid fa-lg fa-envelope"></i>
+                </span>
+              </span>
+              <span class="card-footer-item is-size-5">
+                <span class="icon has-text-danger">
+                <i class="fa-brands fa-lg fa-linkedin"></i>
+              </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
   );
 }
