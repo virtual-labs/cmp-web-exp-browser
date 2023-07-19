@@ -1,6 +1,6 @@
 {
   "name": "exp-people",
-  "version": "1.0.2",
+  "version": "1.0.9",
   "description": "Experiments Card and people component",
   "main": "./build/index.js",
   "scripts": {

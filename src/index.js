@@ -110,7 +110,7 @@ export function Bulmacomponent(props) {
         {saved === true ? (
           <button
             className="card-footer-item button is-primary is-light p-0"
-            style={{border:"3px solid green"}}
+            style={{ border: "3px solid green" }}
             onClick={() => {
               call_backfunc();
             }}
@@ -128,7 +128,7 @@ export function Bulmacomponent(props) {
         ) : (
           <button
             className="card-footer-item  button is-primary is-light"
-            style={{border:"3px solid green"}}
+            style={{ border: "3px solid green" }}
             onClick={() => {
               call_backfunc();
             }}
@@ -148,46 +148,318 @@ export function Bulmacomponent(props) {
     </div>
   );
 }
-export function People_Card() {
+export function PeopleCard(props) {
+  const [data, setdata] = useState({
+    present: true,
+    display_name: "First Last",
+    full_name: "first Middlename last",
+    curr_position: "Employee",
+    last_working_year: "present",
+    about_me:
+      "Lorem ipsum sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris. ",
+    institute: "IIIT-H",
+    profile_img: "https://picsum.photos/96/96",
+    impact_score: "4.5",
+    linkedin: "https://www.linkedin.com/",
+    email: "example@gamil.com",
+    associations: [
+      {
+        name: "DASS",
+        joining: "Jan-23",
+        leaving: "Apr-23",
+        projects: [
+          {
+            link: "https://github.com/",
+            title: "title",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.",
+          },
+          {
+            link: "https://github.com/",
+            title: "title1",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+        ],
+      },
+      {
+        name: "Summer Intern",
+        joining: "May-23",
+        leaving: "present",
+        projects: [
+          {
+            link: "null11",
+            title: "title11",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+          {
+            link: "null12",
+            title: "title12",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+        ],
+      },
+      {
+        name: "RA",
+        joining: "May-23",
+        leaving: "present",
+        projects: [
+          {
+            link: "null11",
+            title: "title11",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+          {
+            link: "null12",
+            title: "title12",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+        ],
+      },
+      {
+        name: "RA",
+        joining: "May-23",
+        leaving: "present",
+        projects: [
+          {
+            link: "null11",
+            title: "title11",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+          {
+            link: "",
+            title: "title12",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+        ],
+      },
+      {
+        name: "RA",
+        joining: "May-23",
+        leaving: "present",
+        projects: [
+          {
+            link: "null11",
+            title: "title11",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+          {
+            link: "null12",
+            title: "title12",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+        ],
+      },
+      {
+        name: "RA",
+        joining: "May-23",
+        leaving: "present",
+        projects: [
+          {
+            link: "null11",
+            title: "title11",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+          {
+            link: "null12",
+            title: "title12",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+        ],
+      },
+      {
+        name: "RA",
+        joining: "May-23",
+        leaving: "present",
+        projects: [
+          {
+            link: "null11",
+            title: "title11",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+          {
+            link: "null12",
+            title: "title12",
+            contribution:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris.",
+          },
+        ],
+      },
+    ],
+  });
+  useEffect(() => {
+    setdata(props?.UserData);
+    if (!props?.UserData?.present) {
+      setpresent("past");
+    }
+  }, []);
+  function openModal() {
+    const modal = document.getElementById(data?.email + data?.about_me);
+    modal.classList.add("is-active");
+  }
+  function closeModal() {
+    const modal = document.getElementById(data?.email + data?.about_me);
+    modal.classList.remove("is-active");
+  }
+  const getClass = () => {
+    if (data?.present === true) {
+      return "present";
+    } else {
+      return "past";
+    }
+  };
+  const additionalClassNames = "is-clipped";
   return (
-    <div className="outer_card mx-5 has-background-white">
-      <div className="lines is-clipped"></div>
-      <div className="height"></div>
-      <div className="imgbx has-background-white">
-        <img src="https://picsum.photos/96/96"></img>
-        <div className="is-flex is-flex-direction-column wrapper">
-          <div className="data has-text-centered">
-            <p className="is-size-3 has-text-weight-semibold has-text-black">
-              Yatharth Gupta
-            </p>
-            <span className="is-size-4 has-text-weight-medium has-text-black">
-              Developer
-            </span>
-            <p className="px-1 mt-1 has-text-black has-text-black">
-              Lorem jgbllbj rgngejO wough owugh owg hwighoGh ig hiwuhisgu high
-              ig hiugh iguh ig gkenaleknlagbagb jabg kjen
-            </p>
-          </div>
-          <div class="card-footer mt-auto ">
-            <span class="icon-text card-footer-item">
-              <span class="icon has-text-danger">
-                <i class="fas fa-lg fa-star"></i>
+    <>
+      <div className="outer_card mx-5 has-background-white">
+        <div className={`${getClass()} ${additionalClassNames}`}></div>
+        <div className="height"></div>
+        <div className="imgbx has-background-white">
+          <img src={data?.profile_img}></img>
+          <div className="is-flex is-flex-direction-column wrapper">
+            <div className="has-text-centered">
+              <div class="display_name_hover">
+                <p class="is-size-3 has-text-weight-semibold has-text-black display_name_text">
+                  {data?.display_name}
+                </p>
+                <p class="display_name_tooltip">{data?.display_name}</p>
+              </div>
+              <span class="has-text-black subtitle is-size-5 ">
+                {data?.curr_position}
               </span>
-              <span className="has-text-black"> 4.5/5</span>
-            </span>
-            <span class="card-footer-item is-size-5">
-              <span class="icon has-text-danger">
-                <i class="fa-solid fa-lg fa-envelope"></i>
-              </span>
-            </span>
-            <span class="card-footer-item is-size-5">
-              <span class="icon has-text-danger">
-                <i class="fa-brands fa-lg fa-linkedin"></i>
-              </span>
-            </span>
+              <div class="abt_me_hover">
+                <p class="px-1 has-text-black has-text-black abt_me_text">
+                  {data?.about_me}
+                </p>
+                <p class="abt_me_tooltip">{data?.about_me}</p>
+              </div>
+            </div>
+            <div class="card-footer mt-auto ">
+              <button
+                class="card-footer-item button is-primary m-1 p-0 is-2"
+                onClick={() => {
+                  openModal();
+                }}
+              >
+                Profile
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="modal" id={data?.email + data?.about_me}>
+        <div
+          class="modal-background"
+          onClick={() => {
+            closeModal();
+          }}
+        ></div>
+        <div
+          class="modal-content has-text-centered has-background-white"
+          style={{ height: "30rem", width: "100%", maxWidth: "50rem" }}
+        >
+          <div class="columns m-auto" style={{ height: "100%" }}>
+            <button
+              class="modal-close is-large has-background-primary"
+              aria-label="close"
+              onClick={() => {
+                closeModal();
+              }}
+            ></button>
+            <div class="column is-two-fifths px-0 has-background-primary is-flex is-justify-content-center is-flex-direction-column">
+              <header>
+                <img src={data?.profile_img} style={{ borderRadius: "50%" }} />
+              </header>
+              <section>
+                <div class="name_hover">
+                  <p class="title name my-0">{data?.full_name}</p>
+                  <p class="tooltip_name">{data?.full_name}</p>
+                </div>
+                <p class="subtitle my-0 mx-4">{data?.curr_position}</p>
+                <p class=" my-0">{data?.institute}</p>
+              </section>
+              <footer class="columns is-mobile is-vcentered mt-3">
+                {data?.associations.some(
+                  (association) => association.name.toLowerCase() === "emplyoee"
+                ) || data?.curr_position.toLowerCase() === "employee" ? (
+                  <span class="icon-text column">
+                    <span class="icon has-text-danger">
+                      <i class="fas fa-2x fa-star"></i>
+                    </span>
+                    <span className="has-text-black is-size-4"> {data.impact_score}</span>
+                  </span>
+                ) : null}
+                <span class="column">
+                  <span class="icon has-text-danger mail_container">
+                    <div class="mail">
+                      <i class="fa-solid fa-2x fa-envelope "></i>
+                      <div class="mail-content">{data?.email}</div>
+                    </div>
+                  </span>
+                </span>
+                <span class=" column ">
+                  <span class="icon has-text-danger">
+                    <a
+                      target="_blank"
+                      class="is-clickable has-text-danger"
+                      href={data?.linkedin}
+                    >
+                      <i class="fa-brands fa-2x fa-linkedin"></i>
+                    </a>
+                  </span>
+                </span>
+              </footer>
+            </div>
+            <div class="column pl-4 project-content">
+              <p class="is-size-4 has-text-weight-medium is-underlined tag is-light is-primary">
+                Contributions
+              </p>
+              <section class="content">
+                <ul class="has-text-left ml-2 my-0">
+                  {data.associations.map((item, i) => {
+                    return (
+                      <>
+                        <li class="is-size-5 has-text-weight-medium is-vcentered">
+                          <span class="has-text-left mx-auto">{item.name}</span>
+                          <span class="is-pulled-right is-size-6 ">
+                            {item?.joining} - {item?.leaving}
+                          </span>
+                        </li>
+                        <ul class="has-text-left ml-3 my-0">
+                          {item.projects.map((project) => {
+                            return (
+                              <li class="is-size-6">
+                                <b>{project.title}</b> - {project.contribution}
+                                {
+                                  project.link !== "" ? (
+                                <a target="_blank" href={project.link}>
+                                  | LINK
+                                </a>):(null)
+                                }
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </>
+                    );
+                  })}
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
