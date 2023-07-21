@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import "bulma/css/bulma.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-export function Bulmacomponent(props) {
+export function ExpComponent(props) {
   const [data, setdata] = useState({
     exp_name: "Experiment Name",
     exp_link: "https://google.com",
