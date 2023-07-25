@@ -1,6 +1,6 @@
 {
   "name": "cmp-exp-browser",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Experiments Card and People Card",
   "main": "./build/index.js",
   "scripts": {

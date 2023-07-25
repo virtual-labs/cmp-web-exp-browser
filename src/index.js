@@ -300,9 +300,6 @@ export function PeopleCard(props) {
   });
   useEffect(() => {
     setdata(props?.UserData);
-    if (!props?.UserData?.present) {
-      setpresent("past");
-    }
   }, []);
   function openModal() {
     const modal = document.getElementById(data?.email + data?.about_me);
