@@ -323,7 +323,11 @@ export function PeopleCard(props) {
         <div className={`${getClass()} ${additionalClassNames}`}></div>
         <div className="height"></div>
         <div className="imgbx has-background-white">
-          <img src={data?.profile_img}></img>
+          {data?.profile_img === "" || data?.profile_img === null ? (
+            <img src="https://picsum.photos/96/96"></img>
+          ) : (
+            <img src={data?.profile_img}></img>
+          )}
           <div className="is-flex is-flex-direction-column wrapper">
             <div className="has-text-centered">
               <div class="display_name_hover">
@@ -376,7 +380,17 @@ export function PeopleCard(props) {
             ></button>
             <div class="column is-two-fifths px-0 has-background-primary is-flex is-justify-content-center is-flex-direction-column">
               <header>
-                <img src={data?.profile_img} style={{ borderRadius: "50%" }} />
+                {data?.profile_img === "" || data?.profile_img === null ? (
+                  <img
+                    src="https://picsum.photos/96/96"
+                    style={{ borderRadius: "50%" }}
+                  />
+                ) : (
+                  <img
+                    src={data?.profile_img}
+                    style={{ borderRadius: "50%" }}
+                  />
+                )}
               </header>
               <section>
                 <div class="name_hover">
@@ -394,7 +408,10 @@ export function PeopleCard(props) {
                     <span class="icon has-text-danger">
                       <i class="fas fa-2x fa-star"></i>
                     </span>
-                    <span className="has-text-black is-size-4"> {data.impact_score}</span>
+                    <span className="has-text-black is-size-4">
+                      {" "}
+                      {data.impact_score}
+                    </span>
                   </span>
                 ) : null}
                 <span class="column">
@@ -430,7 +447,7 @@ export function PeopleCard(props) {
                         <li class="is-size-5 has-text-weight-medium is-vcentered">
                           <span class="has-text-left mx-auto">{item.name}</span>
                           <span class="is-pulled-right is-size-6 ">
-                            {item?.joining} - {item?.leaving}
+                            {item?.joining} to {item?.leaving}
                           </span>
                         </li>
                         <ul class="has-text-left ml-3 my-0">
@@ -438,12 +455,11 @@ export function PeopleCard(props) {
                             return (
                               <li class="is-size-6">
                                 <b>{project.title}</b> - {project.contribution}
-                                {
-                                  project.link !== "" ? (
-                                <a target="_blank" href={project.link}>
-                                  | LINK
-                                </a>):(null)
-                                }
+                                {project.link !== "" ? (
+                                  <a target="_blank" href={project.link}>
+                                    | LINK
+                                  </a>
+                                ) : null}
                               </li>
                             );
                           })}
