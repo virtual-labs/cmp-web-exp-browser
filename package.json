@@ -1,6 +1,6 @@
 {
   "name": "cmp-exp-browser",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Experiments Card and People Card",
   "main": "./build/index.js",
   "scripts": {
@@ -17,7 +17,9 @@
     "style-loader": "^3.3.2",
     "terser-webpack-plugin": "^5.3.8",
     "webpack": "^5.82.1",
-    "webpack-cli": "^5.1.1"
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.1",
+    "react-copy-to-clipboard": "^5.1.0" 
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
