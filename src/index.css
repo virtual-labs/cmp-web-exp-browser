@@ -131,7 +131,28 @@ header img{
   transition: opacity 0.5s;
   /* overflow: auto; */
 }
-.mail:hover .mail-content{
+.link-content{
+  position: absolute;
+  top: -150%;
+  left: -60px;
+  width: 150px;
+  /* height: 100%; */
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+  text-wrap: nowrap;
+  /* overflow: auto; */
+}
+
+.mail:hover .mail-content {
+  opacity: 1;
+} 
+
+.mail:hover .link-content {
   opacity: 1;
 } 
 .project-content{

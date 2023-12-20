@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import "bulma/css/bulma.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 export function ExpComponent(props) {
   const [data, setdata] = useState({
     exp_name: "Experiment Name",
@@ -54,7 +55,7 @@ export function ExpComponent(props) {
       </div>
       <div class="card-content px-0 pb-0">
         <div>
-          {data.rating !== 0 ? (
+          {data?.rating !== 0 ? (
             <span
               class=" is-pulled-right icon-text tag is-primary is-light is-medium pr-2 is-rounded"
               style={{ marginTop: "-35px" }}
@@ -298,8 +299,9 @@ export function PeopleCard(props) {
       },
     ],
   });
+  const [clipboard, setClipboard] = useState(false)
   useEffect(() => {
-    setdata(props?.UserData);
+    // setdata(props?.UserData);
   }, []);
   function openModal() {
     const modal = document.getElementById(data?.email + data?.about_me);
@@ -434,6 +436,26 @@ export function PeopleCard(props) {
                   </span>
                 </span>
               </footer>
+              <footer class="columns is-mobile is-vcentered mt-3">
+              <span class="column">
+                  <span class="icon has-text-danger mail_container">
+                  <CopyToClipboard text={data?.linkedin}
+                    onCopy={e => setClipboard(true)}
+                  >
+                  <div class="mail"
+                    onMouseEnter={e => setClipboard(false)}
+                  >
+                      <i class="fa-solid fa-2x fa-link"></i>
+                      {
+                        clipboard == true
+                        ?<div class="link-content">Copied</div>
+                        :<div class="link-content">Copy To Clipboard</div>
+                      }
+                    </div>
+                  </CopyToClipboard>
+                  </span>
+                </span>
+              </footer>
             </div>
             <div class="column pl-4 project-content">
               <p class="is-size-4 has-text-weight-medium is-underlined tag is-light is-primary">
@@ -441,7 +463,7 @@ export function PeopleCard(props) {
               </p>
               <section class="content">
                 <ul class="has-text-left ml-2 my-0">
-                  {data.associations.map((item, i) => {
+                  {data?.associations.map((item, i) => {
                     return (
                       <>
                         <li class="is-size-5 has-text-weight-medium is-vcentered">
