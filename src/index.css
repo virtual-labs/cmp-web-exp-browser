@@ -1,0 +1,413 @@
+.outer_card{
+  margin-top: 100px!important;
+  position: relative;
+  width: 290px;
+  height: 330px;
+  transition: 0.5s;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px black ;
+}
+.outer_card .present {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+}
+.outer_card .present::before
+{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left:50%;
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(#ff00dd,#00f2ff,#ff00dd);;
+  animation: animate 5s linear infinite;
+}
+.outer_card .present::after{
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: white;
+  border-radius: 10px;
+  
+}
+.outer_card .past {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+}
+.outer_card .past::before
+{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left:50%;
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(#000,#ededed,#000);;
+  animation: animate 5s linear infinite;
+}
+.outer_card .past::after{
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: white;
+  border-radius: 10px;
+  
+}
+@keyframes animate {
+  0%{
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%,-50%) rotate(360deg);
+
+  }
+}
+.outer_card .imgbx{
+  top: 5px;
+  left: 5px;
+  position: absolute;
+  width: 280px;
+  height: 320px;
+  transition: 0.5s;
+  z-index: 10;
+  border-radius: 10px;
+}
+.outer_card .imgbx img{
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: 1;
+  transition: 0.5s;
+  box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
+  filter: grayscale(0);
+}
+.outer_card:hover .imgbx img{
+  width: 160px;
+  height: 160px;
+  top :-100px;
+}
+.height{
+  margin-top: -30%;
+  padding-top: 80px;
+}
+
+.wrapper {
+  margin-top: 25%;
+  min-height: 77%;
+}
+
+header img{
+  box-shadow: 0px 0px 10px 0px white;
+  height: 150px;
+  width: 150px;
+}
+.modal-content{
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #fff;
+  overflow-x:hidden!important;
+}
+.mail_container {
+  position: relative;
+}
+
+.mail-content{
+  position: absolute;
+  top: -120%;
+  left: 0;
+  /* width: 100%; */
+  /* height: 100%; */
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+  /* overflow: auto; */
+}
+.link-content{
+  position: absolute;
+  top: -150%;
+  left: -60px;
+  width: 150px;
+  /* height: 100%; */
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+  text-wrap: nowrap;
+  /* overflow: auto; */
+}
+
+.mail:hover .mail-content {
+  opacity: 1;
+} 
+
+.mail:hover .link-content {
+  opacity: 1;
+} 
+.project-content{
+  overflow-y:auto!important;
+  margin-right: 1px;
+}
+
+.name_hover {
+  overflow: hidden;
+  line-height: 1.5!important;
+}
+
+.name {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit the text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tooltip_name {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  position: absolute;
+  transform: translateX(100%);
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.name_hover:hover .tooltip_name {
+  visibility: visible;
+  opacity: 1;
+}
+
+.display_name_hover {
+  overflow: hidden;
+  line-height: 1.5!important;
+}
+
+.display_name_text {
+  display: -webkit-box;
+  /* min-height: 2em; */
+  -webkit-line-clamp: 1; /* Limit the text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.display_name_tooltip {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #000;
+  color: #fff;
+  z-index: 10;
+  padding: 5px;
+  position: absolute;
+  transform: translateX(100%);
+  transition: visibility 0s, opacity 0.5s;
+}
+
+
+.display_name_hover:hover .display_name_tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.abt_me_hover {
+  overflow: hidden;
+  line-height: 1.5!important;
+}
+
+.abt_me_text {
+  display: -webkit-box;
+  /* min-height: 2em; */
+  -webkit-line-clamp: 4; /* Limit the text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.abt_me_tooltip {
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  position: absolute;
+  transform: translateX(10%);
+  transition: visibility 0s, opacity 0.5s;
+}
+
+
+.abt_me_hover:hover .abt_me_tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+body::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #838282; /* Color of the scrollbar thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #404040; /* Color of the scrollbar thumb on hover */
+}
+
+.project-content::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+.project-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+
+.project-content::-webkit-scrollbar-thumb {
+  background-color: #838282; /* Color of the scrollbar thumb */
+}
+
+.project-content::-webkit-scrollbar-thumb:hover {
+  background-color: #404040; /* Color of the scrollbar thumb on hover */
+}
+
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+  overflow: auto;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay p {
+  text-align: center;
+}
+
+.text_hover {
+  overflow: hidden;
+  line-height: 1.5!important;
+}
+
+.text {
+  display: -webkit-box;
+  /* min-height: 2em; */
+  -webkit-line-clamp: 2; /* Limit the text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  position: absolute;
+  transform: translateX(10%);
+  transition: visibility 0s, opacity 0.5s;
+}
+
+
+.text_hover:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.text_hover_domain {
+  overflow: hidden;
+}
+
+.text_domain {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limit the text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgreen!important;
+  font-weight: 600;
+}
+
+.tooltip_domain {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  position: absolute;
+  transform: translateX(10%);
+  transition: visibility 0s, opacity 0.5s;
+}
+
+
+.text_hover_domain:hover .tooltip_domain {
+  visibility: visible;
+  opacity: 1;
+}
+
+.text_hover_contnet {
+  overflow: hidden;
+}
+.text_content {
+  display: -webkit-box;
+  margin-bottom: -4px!important;
+  min-height: 5em;
+  -webkit-line-clamp: 3; /* Limit the text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tooltip_content {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  position: absolute;
+  transform: translateX(10%);
+  transition: visibility 0s, opacity 0.5s;
+  z-index: 1;
+}
+
+
+.text_hover_content:hover .tooltip_content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.media-content
+{
+  min-height: 5em;
+}
